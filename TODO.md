@@ -1,0 +1,10 @@
+- Update generator prompts to use plugins
+- Geeral instructions for NOT starting a server
+  - Do NOT start a server if one is already started
+- SST plugin
+  - determine the stage
+- Per-layer logs
+  - or combine all logs into one section? probably this.
+- commit often/conventional commits
+- safety instructions
+  - e.g. AWS user with [ReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/ReadOnlyAccess.html) 

@@ -1,6 +1,7 @@
 - Update generator prompts to use plugins
-- Geeral instructions for NOT starting a server
+- General instructions for NOT starting a server
   - Do NOT start a server if one is already started
+  - 'Running the application locally' - might not be a server
 - SST plugin
   - determine the stage
 - Per-layer logs

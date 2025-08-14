@@ -6,6 +6,8 @@ Analyse the codebase and write a comprehensive Developer Guide for AI agents bas
 
 Write the Developer Guide to `agent-dev-guide-developer-guide.md`
 
+If that file already exists, ask the user if they would like to (a) update the existing file or (b) replace the existing file.
+
 - See the Introduction for a the purpose of this document.
 - XML comments are instructions for you, the author of the guide. Don't include them in the output.
 - Include all uncommented text as-is
@@ -13,11 +15,12 @@ Write the Developer Guide to `agent-dev-guide-developer-guide.md`
 - Go through each section systematically.
 - Think hard and dive deep, using subagents if required. It's extremely important to make this guide as good as possible.
 - The guide should be comprehensive yet compact. Every token counts! 
-- Link to any documentation that provides more detail.
+- Link to any documentation or config files that provide more detail. For example, the Architecture section might link to architecture docs found in the codebase. Or the Code Style section might refer to the code auto-formatter config file. 
 - Mark any missing architecture elements or capabilities with [Not implemented yet] 
-- Skip any irrelevant sections entirely, e.g. don't include Database sections for stateless tools
+- If any topics (## headings) or items (### headings) are non-applicable fill them with just [Not applicable - REASON]. For example, for the '## Frontend' topic you might write [Not applicable - backend-only service]. For the '### Containerization` item you might write [Not applicable - serverless app]  If marking a topic as not applicable, skip all contained items.
+- Document major framework versions if significant, e.g. React Router v7. Don't document library versions.
 
-Examples sections:
+Example sections:
 
 ```
 ### Start development server
@@ -31,10 +34,8 @@ Examples sections:
 
 - A team Kanban board app
 - Create Boards for your teams and manage Tasks on the board
-- Search and filter the board
-- Set tage, owners and due dates on Tasks
 - Role based access with Guest, Team and Admin roles
-- See `docs/manual.md` for more
+- See `docs/user-manual.md` for more
 
 ```
 
@@ -52,8 +53,25 @@ The Developer Guide serves as an interface between the agent and the development
 
 # Key agent responsibilities
 
-- You MUST help continuously improve this documentation. Correct any gaps or inaccuracies that you find. Ensure that the document remains succinct - it will be read by all agents, so every token counts.
-- You MUST verify every change that you make. Don't guess or assume that a change is working unless it is confirmed by an automated test (new features, bugfixes) or interactive verification using a Development Capability like log/database inspection or interactive debugging.
+## Safety
+
+- It is assumed that the application can run in a 'personal development environment', e.g. the user's local machine, or a namespaced cloud environment. 
+- You must ensure that all actions you take will only affect the local development environment in a safe way. If in doubt, ask the user.
+- Never take any action that affects a shared development environment without an explicit request from the user.
+- Never access a production environment in any way.
+- Ensure that any commands (e.g. aws cli) you run are configured to use the personal development environment.
+
+## Continuous improvement
+
+- You MUST help continuously improve this documentation. Correct any gaps or inaccuracies that you find. 
+- Ensure that the document remains succinct. It will be read by all agents, so every token counts.
+
+## Verification of changes
+
+- You MUST verify every change that you make. 
+- Don't guess or assume that a change is working unless it is confirmed by: 
+  - An automated test, which must be written for new features, bugfixes
+  - Or, for smaller changes or debugging: interactive verification using a Development Capability like log/database inspection or interactive browser debugging
 
 # Architecture
 
@@ -99,7 +117,7 @@ The Developer Guide serves as an interface between the agent and the development
 ### Key Dependencies
 <!-- Major libraries and frameworks -->
 
-## Frontend (if applicable)
+## Frontend
 
 ### Framework
 <!-- React, Vue, Angular, Svelte, vanilla JS, etc. -->
@@ -125,7 +143,7 @@ The Developer Guide serves as an interface between the agent and the development
 ### API Communication
 <!-- fetch, axios, GraphQL client, etc. -->
 
-## Backend (if applicable)
+## Backend
 
 ### Framework
 <!-- Express, Django, Spring, Rails, FastAPI, etc. -->
@@ -174,7 +192,7 @@ The Developer Guide serves as an interface between the agent and the development
 ### SSO Integration
 <!-- LDAP, Active Directory, Google Workspace, etc. -->
 
-## Data Layer (if applicable)
+## Data Layer
 
 ### Primary Database
 <!-- PostgreSQL, MySQL, MongoDB, etc. -->
@@ -363,7 +381,7 @@ Include:
 ### Generate test
 <!-- Create test file for existing code -->
 
-## Database Operations (if applicable)
+## Database Operations
 
 ### Run migrations
 <!-- Apply database schema changes -->
@@ -427,7 +445,7 @@ Include:
 ### Trace requests
 <!-- Follow request through system -->
 
-## Monitoring (if applicable)
+## Monitoring
 
 ### Health check
 <!-- Verify all services are running correctly -->
@@ -452,9 +470,6 @@ Include:
 ### Run production mode locally
 <!-- Test production build locally -->
 
-### Deploy to environment
-<!-- Deploy to staging/production -->
-
 ### View deployment status
 <!-- Check current deployed version -->
 
@@ -467,10 +482,10 @@ Include:
 ### Generate release notes
 <!-- Create changelog -->
 
-## Documentation
+## Further Documentation
 
 ### Project overview
-<!-- What the project does and how to use it -->
+<!-- What the application does and how to use it -->
 
 ### Available commands
 <!-- List all npm/make/gradle commands -->
@@ -479,7 +494,7 @@ Include:
 <!-- Document all configuration options -->
 
 ### API documentation
-<!-- Endpoint documentation (if applicable) -->
+<!-- Endpoint documentation -->
 
 ### Generate documentation
 <!-- Auto-generate docs from code -->
@@ -519,7 +534,7 @@ Include:
 ### Validate dependencies
 <!-- Check for conflicts or issues -->
 
-## API/Service Specific (if applicable)
+## API/Service Specific
 
 ### Start API server
 <!-- Run the API service -->
@@ -542,7 +557,7 @@ Include:
 ### Load test endpoint
 <!-- Performance test specific endpoints -->
 
-## Frontend Specific (if applicable)
+## Frontend Specific
 
 ### Start dev server
 <!-- Run frontend with hot reload -->
@@ -586,4 +601,4 @@ Include:
 <!-- Output config for debugging -->
 
 
-Built with https://github.com/martinpllu/agent-dev-guide
+Built with https://github.com/martinpllu/agent-dev-guide v1

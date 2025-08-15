@@ -28,7 +28,7 @@ Always update the 'Built with...' comment including the version number at the en
 Example sections:
 
 ```
-### Start development server
+### Run application
 
 `npm run dev`
 
@@ -93,6 +93,10 @@ The Developer Guide serves as an interface between the agent and the development
 - Don't guess or assume that a change is working unless it is confirmed by: 
   - An automated test, which must be written for new features, bugfixes
   - Or, for smaller changes or debugging: interactive verification using a Development Capability like log/database inspection or interactive browser debugging
+
+## Workflow
+
+- For development environments that support hot reload of changes, use the existing development server/app instance if one is already running, instead of starting a new one or restarting. Use the "Application status" capability to determine if one is running before using "Run application".
 
 # ARCHITECTURE
 
@@ -306,8 +310,14 @@ Include:
 ### Install dependencies
 <!-- Single command to install all project dependencies -->
 
-### Run application
-<!-- Command to run the application locally, with hot reload/watch mode if available -->
+### Start application
+<!-- 
+- Command to start/run the application locally, with hot reload/watch mode if available 
+- Specify whether this runs in hot reload/watch mode
+-->
+
+### Stop application
+<!-- Command to stop the application locally -->
 
 ### Application status
 <!-- Determine if the application is running -->

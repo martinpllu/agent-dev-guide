@@ -1,11 +1,15 @@
-- Update generator prompts to use plugins
 - General instructions for NOT starting a server
   - Do NOT start a server if one is already started
   - 'Running the application locally' - might not be a server
 - SST plugin
   - determine the stage
+- MCP servers?
 - Per-layer logs
   - or combine all logs into one section? probably this.
 - commit often/conventional commits
 - safety instructions
   - e.g. AWS user with [ReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/ReadOnlyAccess.html) 
+- Runtime agent-dev.json file with params like whether to commit to git
+- agent-stack
+  - Boil down to just a reference app
+  - Move useful stuff from the rules into generate.md

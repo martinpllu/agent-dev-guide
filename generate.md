@@ -1,24 +1,29 @@
 <!-- 
 
-# YOUR TASK
+*** YOUR TASK ***
 
 Analyse the codebase and write a comprehensive Developer Guide for AI agents based on the template in this document.
 
-Write the Developer Guide to `agent-dev-guide-developer-guide.md`
+Write the Developer Guide to `agent-dev-guide.md`
 
-If that file already exists, ask the user if they would like to (a) update the existing file or (b) replace the existing file.
+If that file already exists, ask the user if they would like to (a) update the existing file or (b) replace the existing file. 
+
+Always update the 'Built with...' comment including the version number at the end of the file.
 
 - See the Introduction for a the purpose of this document.
 - XML comments are instructions for you, the author of the guide. Don't include them in the output.
 - Include all uncommented text as-is
 - Thoroughly explore the codebase to discover all key architecture elements and capabilities.
+- Discover any available MCP servers and note them in relevant sections.
 - Go through each section systematically.
 - Think hard and dive deep, using subagents if required. It's extremely important to make this guide as good as possible.
 - The guide should be comprehensive yet compact. Every token counts! 
 - Link to any documentation or config files that provide more detail. For example, the Architecture section might link to architecture docs found in the codebase. Or the Code Style section might refer to the code auto-formatter config file. 
 - Mark any missing architecture elements or capabilities with [Not implemented yet] 
-- If any topics (## headings) or items (### headings) are non-applicable fill them with just [Not applicable - REASON]. For example, for the '## Frontend' topic you might write [Not applicable - backend-only service]. For the '### Containerization` item you might write [Not applicable - serverless app]  If marking a topic as not applicable, skip all contained items.
-- Document major framework versions if significant, e.g. React Router v7. Don't document library versions.
+- The document contains Sections (# headings), Topics (## headings) and Items (### headings)
+- If any Topics are non-applicable fill them with just [Not applicable - REASON]. For example, for the '## Frontend' Topic you might write [Not applicable - backend-only service]. For the '### Containerization` Item you might write [Not applicable - serverless app]  If marking a Topic as not applicable, skip all contained Items.
+- Document major framework versions if significant, e.g. React Router v7. Don't document library versions. Never document minor/patch versions.
+- Unless otherwise stated, all instructions should pertain to the 'personal development environment' - e.g. 'View logs' is about viewing the local logs. 
 
 Example sections:
 
@@ -26,6 +31,15 @@ Example sections:
 ### Start development server
 
 `npm run dev`
+
+```
+
+```
+### Run arbitrary query
+
+pnpm tsx scripts/sql-query.ts
+e.g.
+pnpm tsx scripts/sql-query.ts "SELECT * FROM users WHERE email = 'user@test.com'"
 
 ```
 
@@ -39,19 +53,26 @@ Example sections:
 
 ```
 
+PLUGINS
+
+- As well as this prompt, the user may supply one or more 'plugin' prompts that provide Items for a particular technology. 
+- Plugins are delimited by BEGIN PLUGIN [name]... END PLUGIN [name]
+- Include the plugin's documentation in the Developer Guide, incorporating the plugin's Items in the appropriate place. 
+- If a plugin has Sections or Topics or Items that are not in the main template, include them in the generated Developer Guide.
+
  -->
 
 # Developer Guide
 
-This is a comprehensive Developer Guide, designed for AI agents working in this codebase. It contains:
+This is Developer Guide designed for AI agents working in this codebase. It contains:
 
-- **Key agent responsibilities**: Important rules to follow when developing the application.
-- **Architecture**: application overview, components, layers, frameworks and libraries, key standards, code layout. 
-- **Development capabilities**: how to work with the application in a local test environment: interacting with servers, reading logs, running scripts, interactively accessing test data and debugging the app. 
+- **KEY AGENT RESPONSIBILITIES**: Important rules to follow when developing the application.
+- **ARCHITECTURE**: application overview, components, layers, frameworks and libraries, key standards, code layout. 
+- **DEVELOPMENT CAPABILITIES**: how to work with the application in a local test environment: interacting with servers, reading logs, running scripts, interactively accessing test data and debugging the app. 
 
 The Developer Guide serves as an interface between the agent and the development environment. It aims to give the agent the knowledge, ‘hands’ and ‘eyes’ it needs to develop your application efficiently, autonomously and with a high degree of success. It also highlights any gaps in your architecture or missing development capabilities, helping the team identify opportunities for improvement. 
 
-# Key agent responsibilities
+# KEY AGENT RESPONSIBILITIES
 
 ## Safety
 
@@ -63,17 +84,17 @@ The Developer Guide serves as an interface between the agent and the development
 
 ## Continuous improvement
 
-- You MUST help continuously improve this documentation. Correct any gaps or inaccuracies that you find. 
+- You must help continuously improve this documentation. Correct any gaps or inaccuracies that you find. 
 - Ensure that the document remains succinct. It will be read by all agents, so every token counts.
 
 ## Verification of changes
 
-- You MUST verify every change that you make. 
+- You must verify every change that you make. 
 - Don't guess or assume that a change is working unless it is confirmed by: 
   - An automated test, which must be written for new features, bugfixes
   - Or, for smaller changes or debugging: interactive verification using a Development Capability like log/database inspection or interactive browser debugging
 
-# Architecture
+# ARCHITECTURE
 
 ## Application Overview
 
@@ -215,7 +236,7 @@ The Developer Guide serves as an interface between the agent and the development
 ## Infrastructure & Deployment
 
 ### Hosting
-<!-- AWS, GCP, Azure, Vercel, Heroku, self-hosted, etc. -->
+<!-- AWS, GCP, Azure, Vercel, Heroku, self-hosted, desktop etc. -->
 
 ### Containerization
 <!-- Docker, Kubernetes, Docker Compose -->
@@ -278,15 +299,21 @@ Include:
 - **Scripts**: Custom scripts and their purposes
 - **Documentation**: Where to find more detailed docs -->
 
-## Developer Capabilities
+# DEVELOPMENT CAPABILITIES
 
 ## Setup & Initialization
 
 ### Install dependencies
 <!-- Single command to install all project dependencies -->
 
-### Start development server
-<!-- Command to run the application locally -->
+### Run application
+<!-- Command to run the application locally, with hot reload/watch mode if available -->
+
+### Application status
+<!-- Determine if the application is running -->
+
+### Application deployment info
+<!-- Determine the application's ports, endpoints etc -->
 
 ### Environment setup
 <!-- Clear documentation of required environment variables -->
@@ -300,16 +327,10 @@ Include:
 ### Quick reset
 <!-- Reset to clean state (database, cache, etc.) -->
 
-### Service status check
-<!-- View all running services and their ports -->
-
 ## Build & Development
 
 ### Build project
 <!-- Compile/build for production -->
-
-### Run in development mode
-<!-- Start with hot reload/watch mode if available -->
 
 ### Clean build
 <!-- Remove build artifacts and start fresh -->
@@ -418,14 +439,18 @@ Include:
 ### View logs
 <!-- Access application logs -->
 
-### Start with debug mode
-<!-- Run application with debugging enabled -->
-
 ### Tail logs
 <!-- Follow log output in real-time -->
 
-### Interactive REPL
-<!-- Access to runtime environment with project context -->
+### Interactively use the app
+<!-- 
+Script or tool to use the app interactively for debugging.
+
+If a web app, it can be very useful to use the e2e testing tool (e.g. Playwright) to implement a script that allows the agent 
+to connect to the running app, navigate through and then interactively run Javascript.
+
+Alternatively the environment may provide an MCP server for general browser use.
+ -->
 
 ### Search logs
 <!-- Find specific patterns in logs -->
@@ -536,9 +561,6 @@ Include:
 
 ## API/Service Specific
 
-### Start API server
-<!-- Run the API service -->
-
 ### List endpoints
 <!-- Show available API routes -->
 
@@ -558,9 +580,6 @@ Include:
 <!-- Performance test specific endpoints -->
 
 ## Frontend Specific
-
-### Start dev server
-<!-- Run frontend with hot reload -->
 
 ### Build frontend
 <!-- Create production bundle -->
@@ -600,5 +619,5 @@ Include:
 ### Export configuration
 <!-- Output config for debugging -->
 
-
-Built with https://github.com/martinpllu/agent-dev-guide v1
+---
+Built with https://github.com/martinpllu/agent-dev-guide v1.0.0

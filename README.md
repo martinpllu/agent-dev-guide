@@ -8,7 +8,7 @@
 
 You can try it out in minutes:
 
-- Run the generator prompt [generate.md](generate.md) in your application workspace using your AI coding tool of choice: Claude Code, Cursor, OpenCode etc. Select the most powerful model with extended thinking for best results.
+- Run the generator prompt [generate.md](https://raw.githubusercontent.com/martinpllu/agent-dev-guide/refs/heads/main/generate.md) in your application workspace using your AI coding tool of choice: Claude Code, Cursor, OpenCode etc. Select the most powerful model with extended thinking for best results.
   - You can also include one or more 'plugin' prompts as described in Plugins below.
 - Your AI agent explores your codebase, systematically analysing it against the structured set of architecture patterns and development capabilities in the generator prompt.
 - The agent generates the Developer Guide in `agent-dev-guide.md`. 
@@ -41,7 +41,7 @@ Development capabilities gives the agent powerful tools to work with the applica
 
 ## Plugins
 
-As well as the base generator prompt [generate.md](generate.md) you can also include one or more 'plugin' prompts to supply tailored documentation for a particular technology. This can be useful for providing docs that the generator might not be able to come up with itself.
+As well as the base generator prompt `generate.md` you can also include one or more 'plugin' prompts to supply tailored documentation for a particular technology. This can be useful for providing docs that the generator might not be able to come up with itself.
 
 For example, there's an [sst.v3.md](plugins/sst.v3.md) plugin that defines the development capabilities provided by the SST v3 tool.
 

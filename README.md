@@ -1,15 +1,20 @@
 # agent-dev-guide
 
-**Auto-generate the perfect context document for your AI agents!**
+**Stop explaining your codebase to AI agents over and over again!**
 
-`agent-dev-guide` automatically generates a structured Developer Guide from your codebase, giving your AI coding agents the map they need for effective autonomous development.
+`agent-dev-guide` automatically generates a structured Developer Guide from your codebase. 
+
+It dives deep, using a structured template to map your architecture and development environment - highlighting what's there and what's missing. It keeps the document brief to make best use of context.
+
+The Developer Guide instantly gives your AI coding agents all the knowledge they need to work with maximum efficiency and accuracy.
 
 ## Quick Start
 
-You can try it out in minutes:
+You can create a Developer Guide in a couple of minutes:
 
-- Run the generator prompt [generate.md](https://raw.githubusercontent.com/martinpllu/agent-dev-guide/refs/heads/main/generate.md) in your application workspace using your AI coding tool of choice: Claude Code, Cursor, OpenCode etc. Select the most powerful model with extended thinking for best results.
-  - You can also include one or more 'plugin' prompts as described in Plugins below.
+- Run the generator prompt [generate.md](https://raw.githubusercontent.com/martinpllu/agent-dev-guide/refs/heads/main/generate.md) in your application workspace using your AI coding tool of choice: Claude Code, Cursor, OpenCode etc. 
+- Select the most powerful model with extended thinking for best results.
+> You can also include one or more 'plugin' prompts as described in Plugins below.
 - Your AI agent explores your codebase, systematically analysing it against the structured set of architecture patterns and development capabilities in the generator prompt.
 - The agent generates the Developer Guide in `agent-dev-guide.md`. 
 - Include `agent-dev-guide.md` in your agent prompts, or incorporate it in rules files like `CLAUDE.md` or `.cursor/rules`
@@ -20,17 +25,16 @@ Developer Guide generated for the `agent-dev-example` application: https://githu
 
 ## The Developer Guide
 
-The generated Developer Guide serves as an interface between your agent and your codebase. It provides:
+The generated Developer Guide serves as a structured interface between your agent and your codebase, providing two key maps:
 
-- A structured map of your architecture: code layout, application layers, frameworks and libraries, key standards. 
-- A structured map of the "development capabilities” that allow your agent to work with the application in a local test environment: interact with servers, read logs, run scripts, interactively access test data and debug the app. 
-- Guidance for the agent to continuously improve the documentation as the application evolves. 
+- **Architecture**: Code layout, application layers, frameworks, libraries, and development standards - giving your agent a clear picture of how your system is organised.
+- **Development Capabilities**: How to interact with servers, read logs, run scripts, access test data, and debug the application in your local environment - enabling your agent to work hands-on with your system.
 
-The Developer Guide helps give your agent the knowledge it needs to develop your application efficiently, autonomously and with a high degree of success. It also highlights any gaps in your architecture or missing development capabilities. This helps you identify opportunities for improvement, and gives your agent the context for implementing them. 
+The guide also identifies gaps in your setup and includes instructions for the agent to keep the documentation current as your codebase evolves.
 
 ## Safety first!
 
-Development capabilities gives the agent powerful tools to work with the application in a personal development environment. However, you must guard against the agent accidentally using the tools against shared environments and especially prodution!
+Development capabilities gives the agent powerful tools to work with the application in a personal development environment. However, you must guard against the agent accidentally using the tools against shared environments and especially production!
 
 **Ensure that your development agent has no access to production**, and ideally no access to shared environments. Use role-based access controls, for example an AWS IAM role that limits agent permissions to a personal account.
 
@@ -46,7 +50,11 @@ For example, there's an [sst.v3.md](plugins/sst.v3.md) plugin that defines the d
 
 Append plugins to the generator prompt (i.e. after the main prompt). 
 
-A handy way to do this for Claude Code: clone this repo locally then run this in your workspace directory: `cat /path/to/agent-dev-guide/generate.md /path/to/agent-dev-guide/generate.md/plugins/sst.v3.md | claude`
+A handy way to do this for Claude Code: clone this repo locally then run this in your workspace directory:
+
+```
+cat /path/to/agent-dev-guide/{generate.md,plugins/sst.v3.md} | claude
+```
 
 You can use the plugins in the `plugins/` directory, or supply your own. Base your plugin on the format used in [sst.v3.md](plugins/sst.v3.md).
 

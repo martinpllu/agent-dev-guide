@@ -1,8 +1,8 @@
 # agent-dev-guide
 
-**Auto-generate the perfect context document for AI agents developing your application!**
+**Auto-generate the perfect context document for your AI agents!**
 
-`agent-dev-guide` automatically generates a structured Developer Guide that gives AI agents the 'knowledge, eyes and hands' they need for effective autonomous development.
+`agent-dev-guide` automatically generates a structured Developer Guide from your codebase, giving your AI coding agents the map they need for effective autonomous development.
 
 ## Quick Start
 
@@ -12,7 +12,6 @@ You can try it out in minutes:
   - You can also include one or more 'plugin' prompts as described in Plugins below.
 - Your AI agent explores your codebase, systematically analysing it against the structured set of architecture patterns and development capabilities in the generator prompt.
 - The agent generates the Developer Guide in `agent-dev-guide.md`. 
-- Review the Developer Guide and correct anything that's missing/incorrect. Please let us know if you have any feedback.
 - Include `agent-dev-guide.md` in your agent prompts, or incorporate it in rules files like `CLAUDE.md` or `.cursor/rules`
 
 ## Example
@@ -24,10 +23,10 @@ Developer Guide generated for the `agent-dev-example` application: https://githu
 The generated Developer Guide serves as an interface between your agent and your codebase. It provides:
 
 - A structured map of your architecture: code layout, application layers, frameworks and libraries, key standards. 
-- A structured set of *development capabilities” that allow your agent to work with the application in a local test environment: interacting with servers, reading logs, running scripts, interactively accessing test data and debugging the app. 
+- A structured map of the "development capabilities” that allow your agent to work with the application in a local test environment: interact with servers, read logs, run scripts, interactively access test data and debug the app. 
 - Guidance for the agent to continuously improve the documentation as the application evolves. 
 
-The Developer Guide helps give your agent the 'knowledge, eyes and hands’ it needs to develop your application efficiently, autonomously and with a high degree of success. It also highlights any gaps in your architecture or missing development capabilities. This helps you identify opportunities for improvement, and gives your agent the context for implementing them. 
+The Developer Guide helps give your agent the knowledge it needs to develop your application efficiently, autonomously and with a high degree of success. It also highlights any gaps in your architecture or missing development capabilities. This helps you identify opportunities for improvement, and gives your agent the context for implementing them. 
 
 ## Safety first!
 

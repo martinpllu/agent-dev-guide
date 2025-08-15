@@ -4,9 +4,10 @@
 - "SST is a framework that makes it easy to build modern full-stack applications on your own infrastructure"
 - An application uses SST version 3 if it depends on `sst` version 3.x in package.json
 
-NOTE FOR HUMANS!
+# NOTES FOR HUMANS!
 
-Ensure that the `dev` command in `package.json` ends with ` > .sst/log/web.log 2>&1`. This captures the output of the local web server (e.g. vite) to a log file that the agent can read. This will be addressed in https://github.com/sst/sst/pull/5898.
+- As the agent runs `npx sst dev` it's assumed that the default stage is appropriate - this will either be the username on the local machine, the stage in .sst/stage or the stage in the SST_STAGE env variable. See https://sst.dev/docs/reference/cli/#stage
+- Ensure that the `dev` command in `package.json` ends with ` > .sst/log/web.log 2>&1`. This captures the output of the local web server (e.g. vite) to a log file that the agent can read. This will be addressed in https://github.com/sst/sst/pull/5898.
 
 -->
 
@@ -14,7 +15,7 @@ Ensure that the `dev` command in `package.json` ends with ` > .sst/log/web.log 2
 
 SST v3. Note that there are significant differences between SSTv2 and v3. Please consult online docs at https://sst.dev/docs if you're not sure.
 
-### Run application
+### Start application
 
 `npx sst dev`
 

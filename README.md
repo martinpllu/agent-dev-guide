@@ -4,7 +4,7 @@
 
 `agent-dev-guide` automatically generates a structured Developer Guide from your codebase. 
 
-It dives deep, using a structured template to map your architecture and development environment - highlighting what's there and what's missing. It keeps the document brief to make best use of context.
+The document generator dives deep, using a structured template to map your architecture and development environment - highlighting what's there and what's missing. It keeps the document comprehensive yet brief, making best use of precious agent context.
 
 The Developer Guide instantly gives your AI coding agents all the knowledge they need to work with maximum efficiency and accuracy.
 

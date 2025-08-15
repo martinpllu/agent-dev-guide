@@ -1,6 +1,0 @@
-- safety instructions
-  - e.g. AWS user with [ReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/ReadOnlyAccess.html) 
-- Runtime agent-dev.json file with params like whether to commit to git
-- agent-stack
-  - Boil down to just a reference app
-  - Move useful stuff from the rules into generate.md

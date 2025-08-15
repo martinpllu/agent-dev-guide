@@ -1,6 +1,6 @@
 # agent-dev-guide
 
-> Auto-generate the perfect context document for AI agents developing your application.
+**Auto-generate the perfect context document for AI agents developing your application!**
 
 `agent-dev-guide` automatically generates a structured Developer Guide that gives AI agents the 'knowledge, eyes and hands' they need for effective autonomous development.
 

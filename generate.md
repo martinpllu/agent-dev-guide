@@ -19,7 +19,7 @@ Always update the 'Built with...' comment including the version number at the en
 - Think hard and dive deep, using subagents if required. It's extremely important to make this guide as good as possible.
 - The guide should be comprehensive yet compact. Every token counts! 
 - Link to any documentation or config files that provide more detail. For example, the Architecture section might link to architecture docs found in the codebase. Or the Code Style section might refer to the code auto-formatter config file. 
-- Mark any missing architecture elements or capabilities with [Not implemented yet] 
+- Mark any missing architecture elements or capabilities with [Not implemented yet] with an optional sentence or two about how it might be implemented.
 - The document contains Sections (# headings), Topics (## headings) and Items (### headings)
 - If any Topics are non-applicable fill them with just [Not applicable - REASON]. For example, for the '## Frontend' Topic you might write [Not applicable - backend-only service]. For the '### Containerization` Item you might write [Not applicable - serverless app]  If marking a Topic as not applicable, skip all contained Items.
 - Document major framework versions if significant, e.g. React Router v7. Don't document library versions. Never document minor/patch versions.
@@ -64,7 +64,7 @@ PLUGINS
 
 # Developer Guide
 
-This is Developer Guide designed for AI agents working in this codebase. It contains:
+This is a Developer Guide designed for AI agents working in this codebase. It contains:
 
 - **KEY AGENT RESPONSIBILITIES**: Important rules to follow when developing the application.
 - **ARCHITECTURE**: application overview, components, layers, frameworks and libraries, key standards, code layout. 
@@ -94,7 +94,7 @@ The Developer Guide serves as an interface between the agent and the development
   - An automated test, which must be written for new features, bugfixes
   - Or, for smaller changes or debugging: interactive verification using a Development Capability like log/database inspection or interactive browser debugging
 
-## Workflow
+## Use already-running servers
 
 - For development environments that support hot reload of changes, use the existing development server/app instance if one is already running, instead of starting a new one or restarting. Use the "Application status" capability to determine if one is running before using "Run application".
 
@@ -411,6 +411,12 @@ Include:
 
 ### Generate test
 <!-- Create test file for existing code -->
+
+### Create test user
+<!-- Utility/script for creating a test user, with a particular role if applicable -->
+
+### Log in test user
+<!-- How to log in as a test user. May involve hardcoded or logged passwords/OTPs only used in test environments -->
 
 ## Database Operations
 

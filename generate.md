@@ -1,4 +1,4 @@
-<!-- 
+[!-- 
 
 *** YOUR TASK ***
 
@@ -11,7 +11,7 @@ If that file already exists, ask the user if they would like to (a) update the e
 Always update the 'Built with...' comment including the version number at the end of the file.
 
 - See the Introduction for a the purpose of this document.
-- XML comments are instructions for you, the author of the guide. Don't include them in the output.
+- [!-- --] comments are instructions for you, the author of the guide. Don't include them in the output.
 - Include all uncommented text as-is
 - Thoroughly explore the codebase to discover all key architecture elements and capabilities.
 - Discover any available MCP servers and note them in relevant sections.
@@ -60,7 +60,7 @@ PLUGINS
 - Include the plugin's documentation in the Developer Guide, incorporating the plugin's Items in the appropriate place. 
 - If a plugin has Sections or Topics or Items that are not in the main template, include them in the generated Developer Guide.
 
- -->
+--]
 
 # Developer Guide
 
@@ -103,189 +103,189 @@ The Developer Guide serves as an interface between the agent and the development
 ## Application Overview
 
 ### Purpose
-<!-- What problem does this application solve? Who are the users? -->
+[!-- What problem does this application solve? Who are the users? --]
 
 ### Type
-<!-- Web app, API service, CLI tool, library, mobile app, desktop app, etc. -->
+[!-- Web app, API service, CLI tool, library, mobile app, desktop app, etc. --]
 
 ### Domain
-<!-- E-commerce, SaaS, internal tool, open source project, etc. -->
+[!-- E-commerce, SaaS, internal tool, open source project, etc. --]
 
 ### Key Features
-<!-- Main functionality and capabilities -->
+[!-- Main functionality and capabilities --]
 
 ## Architecture Shape
 
 ### Pattern
-<!-- Monolith, microservices, serverless, modular monolith, etc. -->
+[!-- Monolith, microservices, serverless, modular monolith, etc. --]
 
 ### Deployment
-<!-- Single server, distributed, cloud-native, edge, hybrid -->
+[!-- Single server, distributed, cloud-native, edge, hybrid --]
 
 ### Communication
-<!-- REST, GraphQL, gRPC, WebSockets, message queues -->
+[!-- REST, GraphQL, gRPC, WebSockets, message queues --]
 
 ### Scalability
-<!-- Stateless, horizontal scaling, vertical scaling, auto-scaling -->
+[!-- Stateless, horizontal scaling, vertical scaling, auto-scaling --]
 
 ## Tech Stack
 
 ### Primary Language(s)
-<!-- With versions if specified -->
+[!-- With versions if specified --]
 
 ### Runtime/Platform
-<!-- Node.js, Python, JVM, .NET, browser, etc. -->
+[!-- Node.js, Python, JVM, .NET, browser, etc. --]
 
 ### Package Manager
-<!-- npm, pip, maven, cargo, etc. -->
+[!-- npm, pip, maven, cargo, etc. --]
 
 ### Key Dependencies
-<!-- Major libraries and frameworks -->
+[!-- Major libraries and frameworks --]
 
 ## Frontend
 
 ### Framework
-<!-- React, Vue, Angular, Svelte, vanilla JS, etc. -->
+[!-- React, Vue, Angular, Svelte, vanilla JS, etc. --]
 
 ### Rendering
-<!-- SPA, SSR, SSG, hybrid -->
+[!-- SPA, SSR, SSG, hybrid --]
 
 ### Routing
-<!-- Client-side, server-side, file-based -->
+[!-- Client-side, server-side, file-based --]
 
 ### Styling
-<!-- CSS modules, styled-components, Tailwind, Sass, etc. -->
+[!-- CSS modules, styled-components, Tailwind, Sass, etc. --]
 
 ### State Management
-<!-- Redux, Zustand, Context, Vuex, etc. -->
+[!-- Redux, Zustand, Context, Vuex, etc. --]
 
 ### Build Tool
-<!-- Webpack, Vite, Parcel, esbuild, etc. -->
+[!-- Webpack, Vite, Parcel, esbuild, etc. --]
 
 ### UI Components
-<!-- Component library, design system -->
+[!-- Component library, design system --]
 
 ### API Communication
-<!-- fetch, axios, GraphQL client, etc. -->
+[!-- fetch, axios, GraphQL client, etc. --]
 
 ## Backend
 
 ### Framework
-<!-- Express, Django, Spring, Rails, FastAPI, etc. -->
+[!-- Express, Django, Spring, Rails, FastAPI, etc. --]
 
 ### API Style
-<!-- REST, GraphQL, RPC, WebSockets -->
+[!-- REST, GraphQL, RPC, WebSockets --]
 
 ### Middleware
-<!-- Logging, rate limiting, CORS, etc. -->
+[!-- Logging, rate limiting, CORS, etc. --]
 
 ### Background Jobs
-<!-- Queue system, cron jobs, workers -->
+[!-- Queue system, cron jobs, workers --]
 
 ### File Handling
-<!-- Local storage, cloud storage (S3, etc.) -->
+[!-- Local storage, cloud storage (S3, etc.) --]
 
 ## Authentication & Authorization
 
 ### Authentication Method
-<!-- JWT, sessions, OAuth2, SAML, API keys, etc. -->
+[!-- JWT, sessions, OAuth2, SAML, API keys, etc. --]
 
 ### Auth Provider
-<!-- Self-managed, Auth0, Firebase Auth, AWS Cognito, etc. -->
+[!-- Self-managed, Auth0, Firebase Auth, AWS Cognito, etc. --]
 
 ### Session Management
-<!-- Storage (Redis, database, memory), expiry strategy -->
+[!-- Storage (Redis, database, memory), expiry strategy --]
 
 ### Multi-Factor Auth
-<!-- TOTP, SMS, email, authenticator apps -->
+[!-- TOTP, SMS, email, authenticator apps --]
 
 ### Password Policy
-<!-- Requirements, reset flow, encryption (bcrypt, argon2, etc.) -->
+[!-- Requirements, reset flow, encryption (bcrypt, argon2, etc.) --]
 
 ### Authorization Model
-<!-- RBAC, ABAC, ACL, custom -->
+[!-- RBAC, ABAC, ACL, custom --]
 
 ### Roles & Permissions
-<!-- User roles, permission structure, inheritance -->
+[!-- User roles, permission structure, inheritance --]
 
 ### API Security
-<!-- Rate limiting, API keys, OAuth scopes -->
+[!-- Rate limiting, API keys, OAuth scopes --]
 
 ### Token Management
-<!-- Access/refresh token strategy, token storage, expiry times -->
+[!-- Access/refresh token strategy, token storage, expiry times --]
 
 ### SSO Integration
-<!-- LDAP, Active Directory, Google Workspace, etc. -->
+[!-- LDAP, Active Directory, Google Workspace, etc. --]
 
 ## Data Layer
 
 ### Primary Database
-<!-- PostgreSQL, MySQL, MongoDB, etc. -->
+[!-- PostgreSQL, MySQL, MongoDB, etc. --]
 
 ### ORM/ODM
-<!-- Drizzle, Prisma, TypeORM, Sequelize, SQLAlchemy, etc. -->
+[!-- Drizzle, Prisma, TypeORM, Sequelize, SQLAlchemy, etc. --]
 
 ### Migrations
-<!-- Tool and strategy -->
+[!-- Tool and strategy --]
 
 ### Caching
-<!-- Redis, Memcached, in-memory, etc. -->
+[!-- Redis, Memcached, in-memory, etc. --]
 
 ### Search
-<!-- Elasticsearch, Algolia, database full-text, etc. -->
+[!-- Elasticsearch, Algolia, database full-text, etc. --]
 
 ### Data Validation
-<!-- Schema validation tools -->
+[!-- Schema validation tools --]
 
 ## Infrastructure & Deployment
 
 ### Hosting
-<!-- AWS, GCP, Azure, Vercel, Heroku, self-hosted, desktop etc. -->
+[!-- AWS, GCP, Azure, Vercel, Heroku, self-hosted, desktop etc. --]
 
 ### Containerization
-<!-- Docker, Kubernetes, Docker Compose -->
+[!-- Docker, Kubernetes, Docker Compose --]
 
 ### IaC
-<!-- Terraform, CloudFormation, Pulumi, CDK, etc. -->
+[!-- Terraform, CloudFormation, Pulumi, CDK, etc. --]
 
 ### CI/CD
-<!-- GitHub Actions, GitLab CI, Jenkins, CircleCI, etc. -->
+[!-- GitHub Actions, GitLab CI, Jenkins, CircleCI, etc. --]
 
 ### Monitoring
-<!-- Datadog, New Relic, Prometheus, CloudWatch, etc. -->
+[!-- Datadog, New Relic, Prometheus, CloudWatch, etc. --]
 
 ### Logging
-<!-- Centralized logging solution -->
+[!-- Centralized logging solution --]
 
 ### Secrets Management
-<!-- Vault, AWS Secrets Manager, environment variables, etc. -->
+[!-- Vault, AWS Secrets Manager, environment variables, etc. --]
 
 ## Development Patterns
 
 ### Code Style
-<!-- Style guide, linting rules, formatting -->
+[!-- Style guide, linting rules, formatting --]
 
 ### Git Workflow
-<!-- Branching strategy, PR process -->
+[!-- Branching strategy, PR process --]
 
 ### Testing Strategy
-<!-- Unit, integration, E2E approach -->
+[!-- Unit, integration, E2E approach --]
 
 ### Error Handling
-<!-- Error boundaries, global handlers, logging -->
+[!-- Error boundaries, global handlers, logging --]
 
 ### Security Patterns
-<!-- Input validation, SQL injection prevention, XSS protection -->
+[!-- Input validation, SQL injection prevention, XSS protection --]
 
 ### Documentation
-<!-- Inline comments, JSDoc, external docs -->
+[!-- Inline comments, JSDoc, external docs --]
 
 ### Configuration
-<!-- Environment-based, feature flags -->
+[!-- Environment-based, feature flags --]
 
 ## Codebase Structure
 
-<!-- Provide the actual directory structure with explanations, e.g.
+[!-- Provide the actual directory structure with explanations, e.g.
 ```
 src/
 ├── components/     # [Description of what goes here]
@@ -301,339 +301,340 @@ Include:
 - **Configuration Files**: What each config file does
 - **Generated Files**: What gets generated and should be gitignored
 - **Scripts**: Custom scripts and their purposes
-- **Documentation**: Where to find more detailed docs -->
+- **Documentation**: Where to find more detailed docs --]
 
 # DEVELOPMENT CAPABILITIES
 
 ## Setup & Initialization
 
 ### Install dependencies
-<!-- Single command to install all project dependencies -->
+[!-- Single command to install all project dependencies --]
 
 ### Start application
-<!-- 
+[!-- 
 - Command to start/run the application locally, with hot reload/watch mode if available 
 - Specify whether this runs in hot reload/watch mode
--->
+--]
 
 ### Stop application
-<!-- Command to stop the application locally -->
+[!-- Command to stop the application locally --]
 
 ### Application status
-<!-- Determine if the application is running -->
+[!-- Determine if the application is running --]
 
 ### Application deployment info
-<!-- Determine the application's ports, endpoints etc -->
+[!-- Determine the application's ports, endpoints etc --]
 
 ### Environment setup
-<!-- Clear documentation of required environment variables -->
+[!-- Clear documentation of required environment variables --]
 
 ### One-command setup
-<!-- Fresh install including dependencies, database, seed data -->
+[!-- Fresh install including dependencies, database, seed data --]
 
 ### Environment validation
-<!-- Check all required variables and services are configured -->
+[!-- Check all required variables and services are configured --]
 
 ### Quick reset
-<!-- Reset to clean state (database, cache, etc.) -->
+[!-- Reset to clean state (database, cache, etc.) --]
 
 ## Build & Development
 
 ### Build project
-<!-- Compile/build for production -->
+[!-- Compile/build for production --]
 
 ### Clean build
-<!-- Remove build artifacts and start fresh -->
+[!-- Remove build artifacts and start fresh --]
 
 ### Build for different environments
-<!-- Separate dev/staging/prod builds -->
+[!-- Separate dev/staging/prod builds --]
 
 ### Watch mode
-<!-- Automatic rebuild on file changes -->
+[!-- Automatic rebuild on file changes --]
 
 ### Bundle analysis
-<!-- Analyse build output size and dependencies -->
+[!-- Analyse build output size and dependencies --]
 
 ### Source maps
-<!-- Generate source maps for debugging -->
+[!-- Generate source maps for debugging --]
 
 ## Code Quality & Validation
 
 ### Run linter
-<!-- Static code analysis -->
+[!-- Static code analysis --]
 
 ### Run type checker
-<!-- Type validation (TypeScript, Flow, MyPy, etc.) -->
+[!-- Type validation (TypeScript, Flow, MyPy, etc.) --]
 
 ### Format code
-<!-- Auto-formatting tool -->
+[!-- Auto-formatting tool --]
 
 ### Fix linting issues
-<!-- Auto-fix safe linting problems -->
+[!-- Auto-fix safe linting problems --]
 
 ### Pre-commit validation
-<!-- Run all checks before commit -->
+[!-- Run all checks before commit --]
 
 ### Security scan
-<!-- Check for known vulnerabilities -->
+[!-- Check for known vulnerabilities --]
 
 ### Check code style
-<!-- Verify adherence to style guide -->
+[!-- Verify adherence to style guide --]
 
 ### Detect unused code
-<!-- Find dead code and unused dependencies -->
+[!-- Find dead code and unused dependencies --]
 
 ## Testing
 
 ### Run all tests
-<!-- Execute complete test suite -->
+[!-- Execute complete test suite --]
 
 ### Run specific test
-<!-- Execute individual test file or test case -->
+[!-- Execute individual test file or test case --]
 
 ### Run unit tests
-<!-- Fast, isolated tests -->
+[!-- Fast, isolated tests --]
 
 ### Test in watch mode
-<!-- Re-run affected tests on changes -->
+[!-- Re-run affected tests on changes --]
 
 ### Test coverage report
-<!-- Code coverage metrics -->
+[!-- Code coverage metrics --]
 
 ### Run integration tests
-<!-- Cross-component/service tests -->
+[!-- Cross-component/service tests --]
 
 ### Run E2E tests
-<!-- Full user journey tests -->
+[!-- Full user journey tests --]
 
 ### Debug specific test
-<!-- Run test with debugger attached -->
+[!-- Run test with debugger attached --]
 
 ### Generate test
-<!-- Create test file for existing code -->
+[!-- Create test file for existing code --]
 
 ### Create test user
-<!-- Utility/script for creating a test user, with a particular role if applicable -->
+[!-- Utility/script for creating a test user, with a particular role if applicable --]
 
 ### Log in test user
-<!-- How to log in as a test user. May involve hardcoded or logged passwords/OTPs only used in test environments -->
+[!-- How to log in as a test user. May involve hardcoded or logged passwords/OTPs only used in test environments --]
 
 ## Database Operations
 
 ### Run migrations
-<!-- Apply database schema changes -->
+[!-- Apply database schema changes --]
 
 ### Connect to database
-<!-- Access database CLI/shell -->
+[!-- Access database CLI/shell --]
 
 ### Reset database
-<!-- Drop and recreate database -->
+[!-- Drop and recreate database --]
 
 ### Seed database
-<!-- Load test/development data -->
+[!-- Load test/development data --]
 
 ### Run arbitrary query
-<!-- Execute SQL/queries directly -->
+[!-- Execute SQL/queries directly --]
 
 ### View schema
-<!-- Display current database structure -->
+[!-- Display current database structure --]
 
 ### Rollback migration
-<!-- Undo last migration -->
+[!-- Undo last migration --]
 
 ### Backup database
-<!-- Create database backup -->
+[!-- Create database backup --]
 
 ### Restore database
-<!-- Restore from backup -->
+[!-- Restore from backup --]
 
 ### Query performance analysis
-<!-- Explain/analyse query execution -->
+[!-- Explain/analyse query execution --]
 
 ## Debugging & Inspection
 
 ### View logs
-<!-- Access application logs -->
+[!-- Access application logs --]
 
 ### Tail logs
-<!-- Follow log output in real-time -->
+[!-- Follow log output in real-time --]
 
 ### Interactively use the app
-<!-- 
+[!-- 
 Script or tool to use the app interactively for debugging.
 
 If a web app, it can be very useful to use the e2e testing tool (e.g. Playwright) to implement a script that allows the agent 
 to connect to the running app, navigate through and then interactively run Javascript.
 
 Alternatively the environment may provide an MCP server for general browser use.
- -->
+--]
+
 
 ### Search logs
-<!-- Find specific patterns in logs -->
+[!-- Find specific patterns in logs --]
 
 ### Filter logs by level
-<!-- Show only errors/warnings/info -->
+[!-- Show only errors/warnings/info --]
 
 ### Connect debugger
-<!-- Attach debugger to running process -->
+[!-- Attach debugger to running process --]
 
 ### Inspect running process
-<!-- View memory, CPU, active connections -->
+[!-- View memory, CPU, active connections --]
 
 ### Profile performance
-<!-- CPU/memory profiling tools -->
+[!-- CPU/memory profiling tools --]
 
 ### Trace requests
-<!-- Follow request through system -->
+[!-- Follow request through system --]
 
 ## Monitoring
 
 ### Health check
-<!-- Verify all services are running correctly -->
+[!-- Verify all services are running correctly --]
 
 ### View metrics
-<!-- Access performance/business metrics -->
+[!-- Access performance/business metrics --]
 
 ### Check service status
-<!-- Individual service health checks -->
+[!-- Individual service health checks --]
 
 ### Monitor dashboard
-<!-- Visual monitoring interface -->
+[!-- Visual monitoring interface --]
 
 ### View error rates
-<!-- Error frequency and patterns -->
+[!-- Error frequency and patterns --]
 
 ## Deployment & Release
 
 ### Build for production
-<!-- Create production-ready build -->
+[!-- Create production-ready build --]
 
 ### Run production mode locally
-<!-- Test production build locally -->
+[!-- Test production build locally --]
 
 ### View deployment status
-<!-- Check current deployed version -->
+[!-- Check current deployed version --]
 
 ### Rollback deployment
-<!-- Revert to previous version -->
+[!-- Revert to previous version --]
 
 ### Run smoke tests
-<!-- Basic tests after deployment -->
+[!-- Basic tests after deployment --]
 
 ### Generate release notes
-<!-- Create changelog -->
+[!-- Create changelog --]
 
 ## Further Documentation
 
 ### Project overview
-<!-- What the application does and how to use it -->
+[!-- What the application does and how to use it --]
 
 ### Available commands
-<!-- List all npm/make/gradle commands -->
+[!-- List all npm/make/gradle commands --]
 
 ### Environment variables
-<!-- Document all configuration options -->
+[!-- Document all configuration options --]
 
 ### API documentation
-<!-- Endpoint documentation -->
+[!-- Endpoint documentation --]
 
 ### Generate documentation
-<!-- Auto-generate docs from code -->
+[!-- Auto-generate docs from code --]
 
 ### View documentation locally
-<!-- Serve docs on local server -->
+[!-- Serve docs on local server --]
 
 ### Architecture overview
-<!-- System design and component interaction -->
+[!-- System design and component interaction --]
 
 ### Troubleshooting guide
-<!-- Common issues and solutions -->
+[!-- Common issues and solutions --]
 
 ## Utilities
 
 ### Install dependencies
-<!-- Add new dependencies -->
+[!-- Add new dependencies --]
 
 ### Update dependencies
-<!-- Upgrade packages -->
+[!-- Upgrade packages --]
 
 ### Check outdated dependencies
-<!-- List packages needing updates -->
+[!-- List packages needing updates --]
 
 ### Dependency security audit
-<!-- Check for vulnerable dependencies -->
+[!-- Check for vulnerable dependencies --]
 
 ### Clean cache
-<!-- Clear build/dependency caches -->
+[!-- Clear build/dependency caches --]
 
 ### Generate component/module
-<!-- Scaffold new code -->
+[!-- Scaffold new code --]
 
 ### Find unused dependencies
-<!-- Identify removable packages -->
+[!-- Identify removable packages --]
 
 ### Validate dependencies
-<!-- Check for conflicts or issues -->
+[!-- Check for conflicts or issues --]
 
 ## API/Service Specific
 
 ### List endpoints
-<!-- Show available API routes -->
+[!-- Show available API routes --]
 
 ### Test endpoint
-<!-- Make request to specific endpoint -->
+[!-- Make request to specific endpoint --]
 
 ### View API documentation
-<!-- Access API docs/swagger -->
+[!-- Access API docs/swagger --]
 
 ### Mock external services
-<!-- Run with stubbed dependencies -->
+[!-- Run with stubbed dependencies --]
 
 ### Validate request/response
-<!-- Check API contract compliance -->
+[!-- Check API contract compliance --]
 
 ### Load test endpoint
-<!-- Performance test specific endpoints -->
+[!-- Performance test specific endpoints --]
 
 ## Frontend Specific
 
 ### Build frontend
-<!-- Create production bundle -->
+[!-- Create production bundle --]
 
 ### Bundle size analysis
-<!-- Analyse JavaScript bundle size -->
+[!-- Analyse JavaScript bundle size --]
 
 ### Component explorer
-<!-- View components in isolation (Storybook, etc.) -->
+[!-- View components in isolation (Storybook, etc.) --]
 
 ### Run accessibility audit
-<!-- Check for a11y issues -->
+[!-- Check for a11y issues --]
 
 ### Lighthouse audit
-<!-- Performance and best practices scan -->
+[!-- Performance and best practices scan --]
 
 ### Browser testing
-<!-- Cross-browser compatibility tests -->
+[!-- Cross-browser compatibility tests --]
 
 ## Configuration & Environment
 
 ### List configuration
-<!-- Show current configuration values -->
+[!-- Show current configuration values --]
 
 ### Switch environment
-<!-- Change between dev/staging/prod configs -->
+[!-- Change between dev/staging/prod configs --]
 
 ### Validate configuration
-<!-- Check config completeness and validity -->
+[!-- Check config completeness and validity --]
 
 ### Diff configurations
-<!-- Compare different environment configs -->
+[!-- Compare different environment configs --]
 
 ### Encrypt secrets
-<!-- Secure sensitive configuration -->
+[!-- Secure sensitive configuration --]
 
 ### Export configuration
-<!-- Output config for debugging -->
+[!-- Output config for debugging --]
 
 ---
 Built with https://github.com/martinpllu/agent-dev-guide v1.0.0

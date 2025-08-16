@@ -23,7 +23,8 @@ Always update the 'Built with...' comment including the version number at the en
 - The document contains Sections (# headings), Topics (## headings) and Items (### headings)
 - If any Topics are non-applicable fill them with just [Not applicable - REASON]. For example, for the '## Frontend' Topic you might write [Not applicable - backend-only service]. For the '### Containerization` Item you might write [Not applicable - serverless app]  If marking a Topic as not applicable, skip all contained Items.
 - Document major framework versions if significant, e.g. React Router v7. Don't document library versions. Never document minor/patch versions.
-- Unless otherwise stated, all instructions should pertain to the 'personal development environment' - e.g. 'View logs' is about viewing the local logs. 
+- In the Architecture items, refer to relevant directories/files/classes/functions in the source code.
+- Unless otherwise stated, all instructions should pertain to the 'personal development environment' - e.g. 'View logs' is about viewing the local logs. Be extremely careful about documenting commands that can be configured to point at different environments (e.g. with an --env or --stage CLI parameter). These commands should be scoped to the personal development environment. Sometimes this environment is the default, e.g. no --env CLI parameter needed. If you can't be certain, add an explanatory `//TODO` note above the command to flag it for human review.
 
 Example sections:
 
@@ -245,7 +246,7 @@ The Developer Guide serves as an interface between the agent and the development
 ### Containerization
 [!-- Docker, Kubernetes, Docker Compose --]
 
-### IaC
+### Infrastructure as Code
 [!-- Terraform, CloudFormation, Pulumi, CDK, etc. --]
 
 ### CI/CD
@@ -306,6 +307,10 @@ Include:
 # DEVELOPMENT CAPABILITIES
 
 ## Setup & Initialization
+
+### Using the Personal Development Environment
+
+[!-- Any general notes on ensuring that commands, scripts etc are configured to use the Personal Development Environment --]
 
 ### Install dependencies
 [!-- Single command to install all project dependencies --]

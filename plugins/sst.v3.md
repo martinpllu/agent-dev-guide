@@ -4,14 +4,13 @@
 - "SST is a framework that makes it easy to build modern full-stack applications on your own infrastructure"
 - An application uses SST version 3 if it depends on `sst` version 3.x in package.json
 
-# NOTES FOR HUMANS!
-
-- As the agent runs `npx sst dev` it's assumed that the default stage is appropriate - this will either be the username on the local machine, the stage in .sst/stage or the stage in the SST_STAGE env variable. See https://sst.dev/docs/reference/cli/#stage
-- Ensure that the `dev` command in `package.json` ends with ` > .sst/log/web.log 2>&1`. This captures the output of the local web server (e.g. vite) to a log file that the agent can read. This will be addressed in https://github.com/sst/sst/pull/5898.
-
 --]
 
-## Infrastructure as code
+### Using the Personal Development Environment
+
+- As the application is started with `npx sst dev` it's assumed that the default stage is appropriate - this will either be the username on the local machine, the stage in .sst/stage or the stage in the SST_STAGE env variable. See https://sst.dev/docs/reference/cli/#stage
+
+## Infrastructure as Code
 
 SST v3. Note that there are significant differences between SSTv2 and v3. Please consult online docs at https://sst.dev/docs if you're not sure.
 
@@ -34,9 +33,13 @@ Logs are written to `.sst/log`. The exact logs will depend on the type of applic
 - `.sst/log/pulumi.log` - infrastructure logs
 - `.sst/lambda/<MyFunction>/<id>.log` - lambda invocation logs
 - `.sst/log/web.log` - web app logs (e.g. nextjs or React Router app). You can get the URL of the web app in this log.
+    - If you are trying to read web.log but it doesn't exist, prompt the user as follows:
+    - "No web log found at .sst/log/web.log. Ensure that the `dev` command in `package.json` ends with ` > .sst/log/web.log 2>&1`. This captures the output of the local web server (e.g. vite) to a log file that the agent can read. This will be addressed in https://github.com/sst/sst/pull/5898."
 
 ### Application deployment info
 
 - `.sst/outputs.json` contains infrastructure outputs, e.g. backend endpoints.
 
 [!-- END PLUGIN sst.v3 --]
+
+

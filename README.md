@@ -50,10 +50,10 @@ For example, there's an [sst.v3.md](plugins/sst.v3.md) plugin that defines the d
 
 Append plugins to the generator prompt (i.e. after the main prompt). 
 
-A handy way to do this for Claude Code: clone this repo locally then run this in your workspace directory:
+A handy way to do this for Claude Code: clone this repo in the directory above your workspace, then run this in your workspace directory:
 
 ```
-cat /path/to/agent-dev-guide/{generate.md,plugins/sst.v3.md} | claude
+claude "$(cat ../agent-dev-guide/generate.md ../agent-dev-guide/plugins/sst.v3.md)"
 ```
 
 You can use the plugins in the `plugins/` directory, or supply your own. Base your plugin on the format used in [sst.v3.md](plugins/sst.v3.md).

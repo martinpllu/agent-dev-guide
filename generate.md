@@ -10,6 +10,14 @@ If that file already exists, ask the user if they would like to (a) update the e
 
 Always update the 'Built with...' comment including the version number at the end of the file.
 
+CRITICAL ACCURACY REQUIREMENTS:
+- VERIFY EVERYTHING: Do not make assumptions. Check files and trace through code to verify behaviors before documenting them.
+- DO NOT RUN COMMANDS: Never execute commands during generation. Instead, inspect the command implementations in build files, scripts, and configuration files to understand what they do.
+- NO GUESSES: If you cannot find evidence for something in the codebase, mark it as [Not implemented yet]. Never guess or invent features.
+- FACT-CHECK PHASE: After initial analysis, go back and verify each claim by checking the actual code/config files.
+- TRACE COMMANDS: Read script files, build configurations (package.json, Makefile, Gradle, pom.xml, Cargo.toml, etc.) to understand what commands do. Don't assume based on naming.
+
+DOCUMENTATION GUIDELINES:
 - See the Introduction for a the purpose of this document.
 - [!-- --] comments are instructions for you, the author of the guide. Don't include them in the output.
 - Include all uncommented text as-is
@@ -18,29 +26,103 @@ Always update the 'Built with...' comment including the version number at the en
 - Go through each section systematically.
 - Think hard and dive deep, using subagents if required. It's extremely important to make this guide as good as possible.
 - The guide should be comprehensive yet compact. Every token counts! 
-- Link to any documentation or config files that provide more detail. For example, the Architecture section might link to architecture docs found in the codebase. Or the Code Style section might refer to the code auto-formatter config file. 
-- Mark any missing architecture elements or capabilities with [Not implemented yet] with an optional sentence or two about how it might be implemented.
+
+VERSION AND EPHEMERAL DATA:
+- Document ONLY major framework versions (e.g., React 18, Angular 15). NEVER include minor or patch versions (not 18.2.0 or 15.2.8).
+- AVOID ephemeral data that changes frequently:
+  - Don't specify current migration numbers
+  - Don't include counts of files or tests  
+  - Don't mention specific build numbers or deployment IDs
+  - Don't include timestamps or dates that will become stale
+- Focus on patterns and approaches rather than current state
+
+CONCRETE EXAMPLES AND REFERENCES:
+- ALWAYS provide specific file paths, class names, and function names as examples
+- For each architectural pattern or feature, cite at least one concrete implementation
+- Example: "Authentication via JWT tokens (see `src/auth/jwt-validator.ts:validateToken()`)"
+- When describing patterns, indicate how widespread they are:
+  - "Used throughout the application" 
+  - "Used in the payment module (`src/payment/*.ts`)"
+  - "Only in `src/experimental/feature.ts`"
+
+ENVIRONMENT SAFETY:
+- CRITICAL: Use placeholder syntax for ALL environment-dependent commands
+- Use `<YOUR_ENV>` as a placeholder that forces user attention
+- Example: `npm run deploy --env=<YOUR_ENV>`
+- Add a safety note at the start of Development Capabilities section explaining the placeholder
+- For commands that might affect shared resources, add explicit warnings
+- Default to the safest option when documenting commands
+
+ARCHITECTURE DOCUMENTATION:
+- Link to any documentation or config files that provide more detail
+- Reference the actual Infrastructure as Code files for deployment info (not assumed CI/CD)
+- Check build configurations and IaC files for the real story (package.json, Makefile, build.gradle, pom.xml, Cargo.toml, etc.)
+- Mark any missing architecture elements or capabilities with [Not implemented yet] with an optional sentence or two about how it might be implemented
+
+SECTION STRUCTURE:
 - The document contains Sections (# headings), Topics (## headings) and Items (### headings)
 - If any Topics are non-applicable fill them with just [Not applicable - REASON]. For example, for the '## Frontend' Topic you might write [Not applicable - backend-only service]. For the '### Containerization` Item you might write [Not applicable - serverless app]  If marking a Topic as not applicable, skip all contained Items.
-- Document major framework versions if significant, e.g. React Router v7. Don't document library versions. Never document minor/patch versions.
 - In the Architecture items, refer to relevant directories/files/classes/functions in the source code.
-- Unless otherwise stated, all instructions should pertain to the 'personal development environment' - e.g. 'View logs' is about viewing the local logs. Be extremely careful about documenting commands that can be configured to point at different environments (e.g. with an --env or --stage CLI parameter). These commands should be scoped to the personal development environment. Sometimes this environment is the default, e.g. no --env CLI parameter needed. If you can't be certain, add an explanatory `//TODO` note above the command to flag it for human review.
+
+VERIFICATION CHECKLIST:
+Before finalizing each section, verify:
+1. Have I actually seen this in the code, or am I assuming?
+2. Did I check the actual implementation, not just the file name?
+3. Are my examples pointing to real files that exist?
+4. Have I verified what commands actually do by checking their implementation?
+5. Am I documenting the actual auth flow used (e.g., OTP vs password)?
+6. Have I checked the IaC/deployment scripts for the real CI/CD setup?
+
+FACT-CHECKING PHASE:
+After completing the initial guide, perform a systematic fact-check:
+1. Go through each technical claim and verify it against the actual codebase
+2. Inspect script files and build configurations to understand command behaviors (DO NOT run them)
+3. Check that all file paths and function names referenced actually exist
+4. Verify version numbers are major versions only
+5. Ensure all environment-specific commands use the `<YOUR_ENV>` placeholder
+6. Remove any ephemeral data that will quickly become outdated
+
+DEPTH OF ANALYSIS:
+- Don't just list technologies - understand how they're actually used
+- Check multiple files to understand patterns, not just one example
+- Trace through actual request flows to understand architecture
+- Read configuration files completely, not just their names
+- When in doubt, mark as [Unable to verify] rather than guessing
+
+COMMAND SAFETY:
+- NEVER execute any commands during guide generation
+- Instead, inspect build files and scripts to understand what commands do:
+  - package.json scripts (Node.js)
+  - Makefile targets (Make)
+  - Gradle/Maven tasks (Java)
+  - Cargo.toml (Rust)
+  - setup.py/pyproject.toml (Python)
+  - Rakefile (Ruby)
+  - CMakeLists.txt (C/C++)
+  - Or any other build/task configuration files
+- Read script files in common directories (scripts/, bin/, tools/, etc.)
+- If a command's behavior is unclear from inspection, mark it as [Behavior needs verification]
+- The human reviewer will verify command behaviors after generation
 
 Example sections:
 
 ```
 ### Run application
 
-`npm run dev`
+`npm run dev`  # Starts development server with hot reload
 
 ```
 
 ```
 ### Run arbitrary query
 
-pnpm tsx scripts/sql-query.ts
-e.g.
-pnpm tsx scripts/sql-query.ts "SELECT * FROM users WHERE email = 'user@test.com'"
+# Examples for different languages/tools:
+npm run database-query --env=<YOUR_ENV> --query="SELECT * FROM users WHERE email = 'user@test.com'"  # Node.js
+make db-query ENV=<YOUR_ENV> QUERY="SELECT * FROM users WHERE email = 'user@test.com'"  # Make
+./gradlew dbQuery -Penv=<YOUR_ENV> -Pquery="SELECT * FROM users WHERE email = 'user@test.com'"  # Gradle
+python scripts/db_query.py --env <YOUR_ENV> --query "SELECT * FROM users WHERE email = 'user@test.com'"  # Python
+
+# Document the actual command for this project, found by inspecting build files/scripts
 
 ```
 
@@ -48,11 +130,16 @@ pnpm tsx scripts/sql-query.ts "SELECT * FROM users WHERE email = 'user@test.com'
 ### Key Features
 
 - A team Kanban board app
-- Create Boards for your teams and manage Tasks on the board
+- Create Boards for your teams and manage Tasks on the board  
 - Role based access with Guest, Team and Admin roles
 - See `docs/user-manual.md` for more
 
 ```
+
+IMPORTANT EXAMPLES NOTE:
+- All command examples with environment parameters MUST use `<YOUR_ENV>` placeholder
+- Example: `npm run deploy --env=<YOUR_ENV>` NOT `npm run deploy --env=dev`
+- This prevents accidental operations on shared environments
 
 PLUGINS
 
@@ -158,7 +245,7 @@ The Developer Guide serves as an interface between the agent and the development
 [!-- CSS modules, styled-components, Tailwind, Sass, etc. --]
 
 ### State Management
-[!-- Redux, Zustand, Context, Vuex, etc. --]
+[!-- Redux, Zustand, Context, Vuex, etc. Verify by checking actual imports and usage patterns. If not found, mark as [Component state only] or [Not implemented]. Include file examples where state management is used. --]
 
 ### Build Tool
 [!-- Webpack, Vite, Parcel, esbuild, etc. --]
@@ -181,7 +268,7 @@ The Developer Guide serves as an interface between the agent and the development
 [!-- Logging, rate limiting, CORS, etc. --]
 
 ### Background Jobs
-[!-- Queue system, cron jobs, workers --]
+[!-- Queue system, cron jobs, workers. Must provide specific examples: "Lambda functions for order processing (see `infra/lib/lambda/process-orders.ts`)" or mark as [Not implemented]. Check for actual job/queue implementations, not just assume based on platform. --]
 
 ### File Handling
 [!-- Local storage, cloud storage (S3, etc.) --]
@@ -189,19 +276,19 @@ The Developer Guide serves as an interface between the agent and the development
 ## Authentication & Authorization
 
 ### Authentication Method
-[!-- JWT, sessions, OAuth2, SAML, API keys, etc. --]
+[!-- JWT, sessions, OAuth2, SAML, API keys, etc. MUST verify actual implementation by checking auth middleware, login endpoints, and token/session handling code. Include specific file references like "JWT validation in `src/middleware/auth.ts:verifyToken()`". --]
 
 ### Auth Provider
-[!-- Self-managed, Auth0, Firebase Auth, AWS Cognito, etc. --]
+[!-- Self-managed, Auth0, Firebase Auth, AWS Cognito, etc. Check actual configuration and imports. --]
 
 ### Session Management
-[!-- Storage (Redis, database, memory), expiry strategy --]
+[!-- Storage (Redis, database, memory), expiry strategy. VERIFY by checking where and how sessions/tokens are actually stored. Check for localStorage, sessionStorage, cookies, or server-side storage. Include code references. --]
 
 ### Multi-Factor Auth
-[!-- TOTP, SMS, email, authenticator apps --]
+[!-- TOTP, SMS, email, authenticator apps, OTP. Check login flow for actual MFA implementation. If using OTP instead of passwords, document that here. --]
 
 ### Password Policy
-[!-- Requirements, reset flow, encryption (bcrypt, argon2, etc.) --]
+[!-- Requirements, reset flow, encryption (bcrypt, argon2, etc.). IMPORTANT: Check if passwords are actually used. Some apps use OTP/magic links only. Document what's actually implemented. --]
 
 ### Authorization Model
 [!-- RBAC, ABAC, ACL, custom --]
@@ -227,7 +314,7 @@ The Developer Guide serves as an interface between the agent and the development
 [!-- Drizzle, Prisma, TypeORM, Sequelize, SQLAlchemy, etc. --]
 
 ### Migrations
-[!-- Tool and strategy --]
+[!-- Tool and strategy. Describe the approach (sequential files, versioned migrations, etc.) but don't mention specific migration numbers as they change frequently. Example: "Sequential SQL files in `db/migrations/`" not "Currently at migration 94". --]
 
 ### Caching
 [!-- Redis, Memcached, in-memory, etc. --]
@@ -250,7 +337,7 @@ The Developer Guide serves as an interface between the agent and the development
 [!-- Terraform, CloudFormation, Pulumi, CDK, etc. --]
 
 ### CI/CD
-[!-- GitHub Actions, GitLab CI, Jenkins, CircleCI, etc. --]
+[!-- GitHub Actions, GitLab CI, Jenkins, CircleCI, AWS CodePipeline, etc. MUST check actual CI/CD configuration: look for .github/workflows, .gitlab-ci.yml, Jenkinsfile, or IaC definitions (CDK/Terraform/CloudFormation). Don't assume based on repository host. --]
 
 ### Monitoring
 [!-- Datadog, New Relic, Prometheus, CloudWatch, etc. --]
@@ -306,11 +393,17 @@ Include:
 
 # DEVELOPMENT CAPABILITIES
 
+[!-- 
+IMPORTANT: Add this safety note at the beginning of this section:
+
+**⚠️ ENVIRONMENT SAFETY NOTE**: Commands in this section use `<YOUR_ENV>` as a placeholder for environment names. Replace this with your personal development environment name (e.g., your username or a dedicated dev environment). NEVER use shared environments like 'dev', 'staging', or 'production' without explicit permission.
+--]
+
 ## Setup & Initialization
 
 ### Using the Personal Development Environment
 
-[!-- Any general notes on ensuring that commands, scripts etc are configured to use the Personal Development Environment --]
+[!-- Any general notes on ensuring that commands, scripts etc are configured to use the Personal Development Environment. MUST use <YOUR_ENV> placeholder in all examples. --]
 
 ### Install dependencies
 [!-- Single command to install all project dependencies --]
@@ -319,16 +412,18 @@ Include:
 [!-- 
 - Command to start/run the application locally, with hot reload/watch mode if available 
 - Specify whether this runs in hot reload/watch mode
+- VERIFY the actual ports by checking configuration files and start scripts
+- Don't assume default ports - check the actual configuration
 --]
 
 ### Stop application
 [!-- Command to stop the application locally --]
 
 ### Application status
-[!-- Determine if the application is running --]
+[!-- Determine if the application is running. Include actual commands that work, verified from scripts or documentation. --]
 
 ### Application deployment info
-[!-- Determine the application's ports, endpoints etc --]
+[!-- Determine the application's ports, endpoints etc. MUST verify actual ports from config files, not assume defaults. Check build scripts, config files, or environment files in the appropriate format for the project's language/framework. --]
 
 ### Environment setup
 [!-- Clear documentation of required environment variables --]
@@ -340,7 +435,7 @@ Include:
 [!-- Check all required variables and services are configured --]
 
 ### Quick reset
-[!-- Reset to clean state (database, cache, etc.) --]
+[!-- Reset to clean state (database, cache, etc.). INSPECT script implementations to understand what reset commands actually do. Don't assume based on naming - a command like 'database-kick' might just wake up a paused database, not reset it. DO NOT run commands to test. --]
 
 ## Build & Development
 
@@ -444,7 +539,7 @@ Include:
 [!-- Display current database structure --]
 
 ### Rollback migration
-[!-- Undo last migration --]
+[!-- Undo last migration. VERIFY if rollback scripts actually exist (down migrations, rollback commands). Many projects only have forward migrations. If no rollback mechanism exists, mark as [Not implemented - forward-only migrations]. --]
 
 ### Backup database
 [!-- Create database backup --]

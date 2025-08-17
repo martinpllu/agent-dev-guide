@@ -17,6 +17,7 @@ You can create a Developer Guide in a couple of minutes:
 > You can also include one or more 'plugin' prompts as described in Plugins below.
 - Your AI agent explores your codebase, systematically analysing it against the structured set of architecture patterns and development capabilities in the generator prompt.
 - The agent generates the Developer Guide in `agent-dev-guide.md`. 
+- **Important** - check the content of the Developer Guide and correct any inaccuracies. Please submit an issue if you think the generator could be improved.
 - Include `agent-dev-guide.md` in your agent prompts, or incorporate it in rules files like `CLAUDE.md` or `.cursor/rules`
 
 ## Example
